@@ -1,0 +1,58 @@
+# =============== #
+# Unity generated #
+# =============== #
+*/[Tt]emp/
+*/[Oo]bj/
+*/*BuildOutput*/
+*/[Bb]uild
+*/[Ll]ibrary/
+*/UserSettings/
+sysinfo.txt
+*Unity/[Ll]ogs/
+*Unity/*.csproj
+*Unity/*.sln*
+*.stackdump
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+.vs/
+.vscode/
+obj
+*.userprefs
+*.pidb
+*.suo
+*.user
+*.unityproj
+*.booproj
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs.db.meta
+[Tt]humbs.db
+[Tt]humbs.db.meta
+/.idea/
+/Documentation/
+/output.log
+/*.log
+/.vs/
+
+# ===================================== #
+# Python generated 						#
+# ===================================== #
+*.pyc
+
+# ===================================== #
+# Miscellaneous 						#
+# ===================================== #
+/cookies
+.idea/
+/log.txt
+bin
