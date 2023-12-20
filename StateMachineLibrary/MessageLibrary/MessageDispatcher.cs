@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EckTechGames.MessageLibrary.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -84,7 +85,7 @@ namespace EckTechGames.MessageLibrary
 
 			if (RecordStackTraceForDebugging)
 			{
-				queuedMessage.stackTrace = new StackTrace(skipFrames: 1, fNeedFileInfo: true);
+				queuedMessage.queuedStackTrace = new StackTrace(skipFrames: 1, fNeedFileInfo: true);
 			}
 
 			messageQueue.Enqueue(queuedMessage);
@@ -105,17 +106,22 @@ namespace EckTechGames.MessageLibrary
 		/// </summary>
 		protected void HandleMessageQueue()
 		{
-			while (messageQueue.Count > 0)
+			// Only handle the messages we know about now. If new messages get queued up, 
+			// those will be handled next Update()
+			int messageCount = messageQueue.Count;
+			while (messageCount > 0)
 			{
+				// Pop a message off the queue and try to handle it.
+				--messageCount;
 				QueuedMessage queuedMessage = messageQueue.Dequeue();
-
 				try
 				{
 					PublishMessage(queuedMessage.message);
 				}
 				catch (Exception ex)
 				{
-					HandleMessageException handleMessageException = new HandleMessageException($"MessageDispatcher encountered a problem handling messageType{queuedMessage.message.GetType()}", ex, queuedMessage.stackTrace);
+					// If there was a problem, throw our HandleMessageException.
+					HandleMessageException handleMessageException = new HandleMessageException($"MessageDispatcher encountered a problem handling messageType{queuedMessage.message.GetType()}", ex, queuedMessage.queuedStackTrace);
 					throw handleMessageException;
 				}
 			}
@@ -168,6 +174,5 @@ namespace EckTechGames.MessageLibrary
 		/// Queue of messages to handle
 		/// </summary>
 		protected Queue<QueuedMessage> messageQueue = new Queue<QueuedMessage>();
-
 	}
 }

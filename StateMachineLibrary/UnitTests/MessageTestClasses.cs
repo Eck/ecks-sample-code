@@ -3,8 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace StateMachineTests
+namespace UnitTests
 {
+	public class SimpleMessageWithInt : IMessage
+	{
+		public int someInt;
+	}
+
 	public class ThrowExceptionMessage : IMessage
 	{
 	}
