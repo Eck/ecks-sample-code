@@ -8,6 +8,11 @@ namespace EckTechGames.StateMachineLibrary
 	public interface IState
 	{
 		/// <summary>
+		/// A string that identifiest the state uniquely among other states in your FiniteStateMachine.
+		/// </summary>
+		string StateID { get; }
+
+		/// <summary>
 		/// The Enter method gets called when this state is entered. Initialization
 		/// code, or code that runs once should go here.
 		/// </summary>
