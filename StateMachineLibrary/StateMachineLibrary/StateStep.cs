@@ -69,7 +69,7 @@ namespace EckTechGames.StateMachineLibrary
 			WasCompleteCalled = true;
 			if (ShouldReportStateTransitions)
 			{
-				Debug.WriteLine($"Completing StateStep: {GetType().Name}[{StateID}]");
+				Console.WriteLine($"Completing StateStep: {GetType().Name}[{StateID}]");
 			}
 
 			// Call our OnComplete and clear out the delegate so it only gets called once.
@@ -122,7 +122,7 @@ namespace EckTechGames.StateMachineLibrary
 					}
 					else
 					{
-						Debug.WriteLine($"ERROR - Unknown Invocation Target[{invocation.Target}] for StateStep.OnComplete[{StateID}] Serialized Targets must be UniquelyIdentifiedObjects");
+						Console.WriteLine($"ERROR - Unknown Invocation Target[{invocation.Target}] for StateStep.OnComplete[{StateID}] Serialized Targets must be UniquelyIdentifiedObjects");
 					}
 				}
 

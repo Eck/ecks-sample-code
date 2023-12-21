@@ -43,7 +43,7 @@ namespace EckTechGames.StateMachineLibrary
 		{
 			if (ShouldReportStateTransitions)
 			{
-				Debug.WriteLine($"Entering State: {this}");
+				Console.WriteLine($"Entering State: {this}");
 			}
 		}
 
@@ -60,7 +60,7 @@ namespace EckTechGames.StateMachineLibrary
 		{
 			if (ShouldReportStateTransitions)
 			{
-				Debug.WriteLine($"Exiting State: {this}");
+				Console.WriteLine($"Exiting State: {this}");
 			}
 		}
 

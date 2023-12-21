@@ -11,6 +11,7 @@ namespace UnitTests
 		[OneTimeSetUp]
 		public void OneTimeSetup()
 		{
+			State.ShouldReportStateTransitions = true;
 			messageDispatcher = new MessageDispatcher();
 		}
 

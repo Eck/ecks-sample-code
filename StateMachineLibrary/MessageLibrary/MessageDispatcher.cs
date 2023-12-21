@@ -148,7 +148,7 @@ namespace EckTechGames.MessageLibrary
 			}
 			else
 			{
-				Debug.WriteLine($"Message sent without listener: [{message}]");
+				Console.WriteLine($"Message sent without listener: [{message}]");
 			}
 		}
 
