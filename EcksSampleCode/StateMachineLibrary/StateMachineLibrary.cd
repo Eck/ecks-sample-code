@@ -1,2 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EckTechGames.StateMachineLibrary.FiniteStateMachine" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARQAAAAAAAEBAMAAAAAACAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FiniteStateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.SendMessageStep&lt;MessageType&gt;" Collapsed="true">
+    <Position X="6.5" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAEAACAAAAAAAAAAAI=</HashCode>
+      <FileName>SendMessageStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.SendMessageWithResponseStep&lt;MessageType&gt;" Collapsed="true">
+    <Position X="6.5" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACABAAAAAAAAAAAABAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SendMessageWithResponseStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.State" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAEAEAAAAAAAAAAAEAAAAJAAAAAAAAQA=</HashCode>
+      <FileName>State.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.StateStep" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAAAAAAAIAAAAAAAAAABAEAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>StateStep.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.StateWithMessages" Collapsed="true">
+    <Position X="7.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAIgAAAAAAAAA=</HashCode>
+      <FileName>StateWithMessageSubscriptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EckTechGames.StateMachineLibrary.TimedStep" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgAAAAAAAAAAAAAAAAAAIEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>TimedStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EckTechGames.StateMachineLibrary.IState">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAEAAAAAAAAAAAAAEAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>IState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EckTechGames.StateMachineLibrary.IStateStep">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStateStep.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

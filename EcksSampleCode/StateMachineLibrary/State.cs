@@ -6,6 +6,12 @@ using System.Text;
 
 namespace EckTechGames.StateMachineLibrary
 {
+	/// <summary>
+	/// This abstract base class provides implementation for nearly all methods of the IState 
+	/// interface and serves as a good starting point for normal states.
+	/// </summary>
+	/// <seealso cref="StateWithMessages"/>
+	/// <seealso cref="StateStep"/>
 	public abstract class State : IState
 	{
 		/// <summary>

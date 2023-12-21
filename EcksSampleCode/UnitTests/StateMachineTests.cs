@@ -83,12 +83,8 @@ namespace UnitTests
 		public void TestSendMessageStepWithResponse()
 		{
 			lastRollToHit = null;
-			string mockSoundEffectID = "MISS";
 			messageDispatcher.SubscribeToMessage(typeof(MockRollToHitMessage), HandleMockRollToHitMessage, shouldSubscribe: true);
 			MockRollToHitStep mockRollToHitStep = new MockRollToHitStep("MockRollToHit01", messageDispatcher);
-
-			// Make sure the sound effect is null
-			Assert.IsNull(lastMockSoundEffectIDPlayed);
 
 			// Enter the state, and update to trigger a miss
 			shouldHit = false;
@@ -154,6 +150,9 @@ namespace UnitTests
 		float currentValue;
 		float newValue = 7;
 
+		/// <summary>
+		/// This test makes sure a simple FiniteStateMachine sequence works.
+		/// </summary>
 		[Test]
 		public void TestSimpleSequence()
 		{

@@ -12,6 +12,8 @@ namespace EckTechGames.StateMachineLibrary
 	/// work to do, you can set the AutoComplete to true, and it will complete
 	/// itself on the next UpdateTick.
 	/// </summary>
+	/// <seealso cref="State"/>
+	/// <seealso cref="StateWithMessages"/>
 	public abstract class StateStep : StateWithMessages, IStateStep
 	{
 		/// <inheritdoc/>

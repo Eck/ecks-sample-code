@@ -7,9 +7,11 @@ using System.Text;
 namespace EckTechGames.StateMachineLibrary
 {
 	/// <summary>
-	/// Abstract game state class that subscribes to messages when the state is entered, and
+	/// Abstract state class that subscribes to messages when the state is entered, and
 	/// unsubscribes from the messages when we exit this state.
 	/// </summary>
+	/// <seealso cref="State"/>
+	/// <seealso cref="StateStep"/>
 	public abstract class StateWithMessages : State
 	{
 		/// <summary>

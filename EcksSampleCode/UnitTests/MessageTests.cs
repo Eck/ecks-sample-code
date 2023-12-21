@@ -29,6 +29,10 @@ namespace UnitTests
 
 
 		protected int currentValue;
+
+		/// <summary>
+		/// This test makes sure the MessageDispatcher Subscribe and Publish methods works.
+		/// </summary>
 		[Test]
 		public void TestMessageSubscriptions()
 		{
@@ -41,7 +45,7 @@ namespace UnitTests
 			SimpleMessageWithInt setCurrentValue = new SimpleMessageWithInt();
 			setCurrentValue.someInt = newValue;
 
-			// Send the message without subscribing - currentValue shouldn't have changed.
+			// Send the message without subscribing - currentValue should NOT have changed.
 			Assert.IsFalse(messageDispatcher.HasSubscriptions(typeof(SimpleMessageWithInt)));
 			messageDispatcher.PublishMessage(setCurrentValue);
 			Assert.AreEqual(startingValue, currentValue);
@@ -52,7 +56,7 @@ namespace UnitTests
 			messageDispatcher.PublishMessage(setCurrentValue);
 			Assert.AreEqual(newValue, currentValue);
 
-			// Unubscribe and send the message again - currentValue should have changed.
+			// Unubscribe and send the message again - currentValue should NOT have changed.
 			currentValue = startingValue;
 			messageDispatcher.SubscribeToMessage(typeof(SimpleMessageWithInt), HandleSetCurrentValue, shouldSubscribe: false);
 			Assert.IsFalse(messageDispatcher.HasSubscriptions(typeof(SimpleMessageWithInt)));

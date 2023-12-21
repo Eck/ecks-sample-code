@@ -7,8 +7,9 @@ namespace EckTechGames.StateMachineLibrary
 {
 	/// <summary>
 	/// A timed state step will run for the delayTimeLimit passed in, and then complete itself.
-	/// This is intended for items that need to have a time component for their actions. If 
-	/// you just want a delay with no action, use DelayStep.
+	/// This is intended for items that need to have a time component for their actions or to enter
+	/// a delay so things don't happen to fast for a user to follow. (Like waiting a second to show 
+	/// dice results)
 	/// </summary>
 	/// <seealso cref="DelayStep"/>
 	public class TimedStep : StateStep
