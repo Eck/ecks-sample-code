@@ -1,5 +1,5 @@
 # Eck's Sample Code
-Some employers are interested in code samples, so this repo will contain mine. I'm currently working on a turn-based strategy game in my spare time so I decided to pull out the messaging system and state machine into this repo to show them off.
+Some potential employers are interested in code samples, so this repo will contain mine. I'm currently working on a turn-based strategy game in my spare time so I decided to pull out the messaging system and state machine into this repo to show them off.
 
 Make sure to take a look at the ⭐ Interesting Bits ⭐ sections if you don't have time to do a deep dive into the repo.
 
