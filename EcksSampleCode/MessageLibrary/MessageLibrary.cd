@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EckTechGames.MessageLibrary.Exceptions.HandleMessageException">
+    <Position X="8.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HandleMessageException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EckTechGames.MessageLibrary.MessageDispatcher">
+    <Position X="5.75" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAMAQAAAAAAAAAgIAAgABAAAAEAAAAAIA=</HashCode>
+      <FileName>MessageDispatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="EckTechGames.MessageLibrary.QueuedMessage">
+    <Position X="8.5" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>QueuedMessage.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="EckTechGames.MessageLibrary.IMessage" Collapsed="true">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EckTechGames.MessageLibrary.IMessageWithCallback">
+    <Position X="3.25" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMessageWithCallback.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
