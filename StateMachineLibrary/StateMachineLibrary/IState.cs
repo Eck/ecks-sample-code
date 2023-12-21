@@ -18,7 +18,8 @@ namespace EckTechGames.StateMachineLibrary
 		/// state. Code that makes decisions for the AI, or code that polls for user input should
 		/// go here.
 		/// </summary>
-		void Update();
+		/// <param name="deltaTime">The amount of time that has passed since the last time Update was called</param>
+		void Update(float deltaTime);
 
 		/// <summary>
 		/// The exit method gets calle when this state is exited. Clean up/tear down code 
