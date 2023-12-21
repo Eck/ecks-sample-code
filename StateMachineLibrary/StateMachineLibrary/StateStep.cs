@@ -54,7 +54,7 @@ namespace EckTechGames.StateMachineLibrary
 		/// <param name="deltaTime">The amount of time that has passed since the last time Update was called</param>
 		public override void Update(float deltaTime)
 		{
-			if (ShouldAutoComplete)
+			if (ShouldAutoComplete && !WasCompleteCalled)
 			{
 				Complete();
 			}
