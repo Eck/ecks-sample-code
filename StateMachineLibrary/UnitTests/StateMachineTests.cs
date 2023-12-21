@@ -35,6 +35,9 @@ namespace UnitTests
 		MessageDispatcher messageDispatcher;
 		string lastMockSoundEffectIDPlayed;
 
+		/// <summary>
+		/// This test makes sure the SendMessageStep works.
+		/// </summary>
 		[Test]
 		public void TestSendMessageStep()
 		{
@@ -68,6 +71,61 @@ namespace UnitTests
 			MockPlaySoundEffectMessage mockPlaySoundEffectMessage = message as MockPlaySoundEffectMessage;
 			lastMockSoundEffectIDPlayed = mockPlaySoundEffectMessage.SoundEffectID;
 			Console.WriteLine($"Mock Play SoundEffectID[{lastMockSoundEffectIDPlayed}]");
+		}
+
+		bool? lastRollToHit = null;
+		bool shouldHit = false;
+
+		/// <summary>
+		/// This test makes sure the SendMessageStepWithResponse works.
+		/// </summary>
+		[Test]
+		public void TestSendMessageStepWithResponse()
+		{
+			lastRollToHit = null;
+			string mockSoundEffectID = "MISS";
+			messageDispatcher.SubscribeToMessage(typeof(MockRollToHitMessage), HandleMockRollToHitMessage, shouldSubscribe: true);
+			MockRollToHitStep mockRollToHitStep = new MockRollToHitStep("MockRollToHit01", messageDispatcher);
+
+			// Make sure the sound effect is null
+			Assert.IsNull(lastMockSoundEffectIDPlayed);
+
+			// Enter the state, and update to trigger a miss
+			shouldHit = false;
+			mockRollToHitStep.Enter();
+			mockRollToHitStep.Update(0f);
+			messageDispatcher.Update();
+
+			// Now that we've sent our message, update another frame to make sure Complete was called
+			mockRollToHitStep.Update(0f);
+			Assert.IsTrue(mockRollToHitStep.WasCompleteCalled);
+
+			// Make sure we missed
+			Assert.AreEqual(shouldHit, lastRollToHit.Value);
+
+			// Enter the state, and update to trigger a hit
+			shouldHit = true;
+			mockRollToHitStep.Enter();
+			mockRollToHitStep.Update(0f);
+			messageDispatcher.Update();
+
+			// Now that we've sent our message, update another frame to make sure Complete was called
+			mockRollToHitStep.Update(0f);
+			Assert.IsTrue(mockRollToHitStep.WasCompleteCalled);
+
+			// Make sure we hit
+			Assert.AreEqual(shouldHit, lastRollToHit.Value);
+
+			messageDispatcher.SubscribeToMessage(typeof(MockRollToHitMessage), HandleMockRollToHitMessage, shouldSubscribe: false);
+		}
+
+		private void HandleMockRollToHitMessage(IMessage message)
+		{
+			MockRollToHitMessage mockRollToHitMessage = message as MockRollToHitMessage;
+
+			lastRollToHit = shouldHit;
+			mockRollToHitMessage.IsHit = shouldHit;
+			mockRollToHitMessage.OnComplete(mockRollToHitMessage);
 		}
 
 		/// <summary>
