@@ -3,6 +3,7 @@ using EckTechGames.MessageLibrary.Exceptions;
 using EckTechGames.StateMachineLibrary;
 using NUnit.Framework;
 using System;
+using UnitTests.StateMachineTestClasses;
 
 namespace UnitTests
 {
@@ -32,6 +33,42 @@ namespace UnitTests
 		}
 
 		MessageDispatcher messageDispatcher;
+		string lastMockSoundEffectIDPlayed;
+
+		[Test]
+		public void TestSendMessageStep()
+		{
+			string mockSoundEffectID = "MISS";
+			lastMockSoundEffectIDPlayed = null;
+			messageDispatcher.SubscribeToMessage(typeof(MockPlaySoundEffectMessage), HandleMockPlaySoundEffectMessage, shouldSubscribe: true);
+			MockPlaySoundEffectStep mockPlaySoundEffectStep = new MockPlaySoundEffectStep("MockSoundEffect01", messageDispatcher, "MISS");
+
+			// Make sure the sound effect is null
+			Assert.IsNull(lastMockSoundEffectIDPlayed);
+
+			// Enter the state, and update to trigger the message.
+			mockPlaySoundEffectStep.Enter();
+			mockPlaySoundEffectStep.Update(0f);
+			messageDispatcher.Update();
+
+			// Make sure the mock sound effect was set.
+			Assert.AreEqual(mockSoundEffectID, lastMockSoundEffectIDPlayed);
+
+			// Make sure the message doesn't get sent twice if it keeps getting updated for some reason
+			lastMockSoundEffectIDPlayed = null;
+			mockPlaySoundEffectStep.Update(0f);
+			messageDispatcher.Update();
+			Assert.IsNull(lastMockSoundEffectIDPlayed);
+
+			messageDispatcher.SubscribeToMessage(typeof(MockPlaySoundEffectMessage), HandleMockPlaySoundEffectMessage, shouldSubscribe: false);
+		}
+
+		private void HandleMockPlaySoundEffectMessage(IMessage message)
+		{
+			MockPlaySoundEffectMessage mockPlaySoundEffectMessage = message as MockPlaySoundEffectMessage;
+			lastMockSoundEffectIDPlayed = mockPlaySoundEffectMessage.SoundEffectID;
+			Console.WriteLine($"Mock Play SoundEffectID[{lastMockSoundEffectIDPlayed}]");
+		}
 
 		/// <summary>
 		/// This test just makes sure the TimedStep works appropriately.
@@ -99,7 +136,6 @@ namespace UnitTests
 			// Make sure we didn't change our currentValue yet. That should only happen after the sequence completes
 			Assert.AreEqual(newValue, currentValue);
 		}
-
 
 		/// <summary>
 		/// Sets the currentValue to 7 so we can test that the SimpleSequence called its OnComplete method.
